@@ -1,10 +1,10 @@
 pipeline {
-  agent any
+    agent any
 
-  parameters {
+    parameters {
         choice(Process: 'PLATFORM_FILTER', choices: ['destroy', 'apply'], description: 'Choose destroy or apply infra')
     }
-  stages{
+  
     stage('Verificacion SCM') {
       checkout scm
     }
@@ -31,7 +31,7 @@ pipeline {
       steps {
         sh 'terraform apply -auto-approve -no-color'
       }
-    }
+
   }
   
 }
